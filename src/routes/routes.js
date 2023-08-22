@@ -1,6 +1,7 @@
 import App from "../App"
 import Home from "../pages/Home"
 import About from "../pages/About"
+import Profile from "../pages/Profile"
 
 const ROUTES = [
     {
@@ -14,7 +15,11 @@ const ROUTES = [
             {
                 path: "about",
                 component: About,
-            }
+            },
+            {
+                path: "profile",
+                component: Profile,
+            },
         ]
     },
 ]

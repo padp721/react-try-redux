@@ -2,7 +2,7 @@ import '../App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCounter, setAbout } from '../store/actions'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function About() {
   const [formAbout, setFormAbout] = useState("")
@@ -17,6 +17,10 @@ export default function About() {
     dispatch(setAbout(formAbout))
   }
 
+  useEffect(() => {
+    setFormAbout(about)
+  }, [])
+  
   return (
     <>
       <div className="card">
@@ -26,8 +30,8 @@ export default function About() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <form onSubmit={e => handleSubmit(e)}>
-          <textarea value={formAbout || about} rows={5} cols={100} onChange={e => setFormAbout(e.target.value)} />
+        <form onSubmit={handleSubmit}>
+          <textarea value={formAbout} rows={5} cols={100} onChange={e => setFormAbout(e.target.value)} />
           <br />
           <button type="submit">Simpan</button>
         </form>

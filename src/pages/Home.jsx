@@ -20,6 +20,9 @@ export default function Home() {
         <button onClick={() => navigate("/about")}>
           Edit About
         </button>
+        <button onClick={() => navigate("/profile")}>
+          Profile
+        </button>
       </div>
     </>
   )

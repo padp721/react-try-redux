@@ -3,9 +3,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
+import { useEffect } from 'react'
 
 function App() {
   const about = useSelector(state => state.about.value)
+  const user = useSelector(state => state.user)
+
+  useEffect(() => {
+    // console.log(user);
+  }, [user])
+  
   
   return (
     <>
@@ -21,6 +28,12 @@ function App() {
       <Outlet />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
+      </p>
+      <p className="read-the-docs">
+        User name : {user.name}
+        <br />
+        User role : {user.role}
+        <br />
       </p>
       <p className="read-the-docs">
         About akan tampil dibawah :
